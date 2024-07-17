@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Jenkins Job
-        uses: sanjaysalunkhe-ayla/testingjenkins@master
+        uses: actions/checkout@v4
         with:
           jenkins_url: 'https://9dd3-209-133-48-2.ngrok-free.app'
           job: 'git-demo'
