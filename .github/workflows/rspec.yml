@@ -16,7 +16,7 @@ jobs:
         name: Trigger Jenkins Job
         uses: sbitio/trigger-jenkins-job@master
         with:
-          JENKINS_USER: ${{ secrets.JENKINS_USER }}
-          JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}
+          JENKINS_USER: sanjay
+          JENKINS_TOKEN: 11b94b8aa8d2bcf031c084dba199d3be67
           JENKINS_HOST: ${{ env.JENKINS_HOST }}
           JENKINS_JOB: ${{ env.JENKINS_JOB }}
