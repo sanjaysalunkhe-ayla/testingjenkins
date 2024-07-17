@@ -17,5 +17,5 @@ jobs:
           JENKINS_USERNAME: sanjay  # Replace with your Jenkins username
           JENKINS_TOKEN: 11b94b8aa8d2bcf031c084dba199d3be67  # Accessing the secret API token
         run: |
-          curl -X POST "https://9dd3-209-133-48-2.ngrok-free.app/job/git-demo/job/git-demo/build" \
+          curl -X POST "https://9dd3-209-133-48-2.ngrok-free.app/job/git-demo/build" \
             --user $JENKINS_USERNAME:$JENKINS_TOKEN
