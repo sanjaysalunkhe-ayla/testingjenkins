@@ -3,13 +3,20 @@ name: Jenkins Integration
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+env:
+  JENKINS_HOST: https://9dd3-209-133-48-2.ngrok-free.app/ ## jenkins base url
+  JENKINS_JOB: job/git-demo ## builds the HelloWorld job inside testJobs
 
 jobs:
-  trigger-jenkins-job:
+  launch_jenkins_job:
+    name: trigger jenkins job
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Jenkins Job
-        uses: actions/checkout@v4
+      -
+        name: Trigger Jenkins Job
+        uses: sbitio/trigger-jenkins-job@master
         with:
-          jenkins_url: 'https://9dd3-209-133-48-2.ngrok-free.app'
-          job: 'git-demo'
+          JENKINS_USER: ${{ secrets.JENKINS_USER }}
+          JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}
+          JENKINS_HOST: ${{ env.JENKINS_HOST }}
+          JENKINS_JOB: ${{ env.JENKINS_JOB }}
