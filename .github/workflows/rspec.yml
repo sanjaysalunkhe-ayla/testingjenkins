@@ -8,15 +8,15 @@ env:
   JENKINS_JOB: git-demo ## builds the HelloWorld job inside testJobs
 
 jobs:
-  launch_jenkins_job:
-    name: trigger jenkins job
+  trigger-job:
     runs-on: ubuntu-latest
+    
     steps:
-      -
-        name: Trigger Jenkins Job
-        uses: sbitio/trigger-jenkins-job@master
-        with:
-          JENKINS_USER: sanjay
-          JENKINS_TOKEN: 11b94b8aa8d2bcf031c084dba199d3be67
-          JENKINS_HOST: ${{ env.JENKINS_HOST }}
-          JENKINS_JOB: ${{ env.JENKINS_JOB }}
+      - name: Trigger Jenkins Job
+        env:
+          JENKINS_USERNAME: sanjay  # Replace with your Jenkins username
+          JENKINS_TOKEN: 11b94b8aa8d2bcf031c084dba199d3be67  # Accessing the secret API token
+        run: |
+          curl -X POST "https://9dd3-209-133-48-2.ngrok-free.app/job/git-demo/job/git-demo/build" \
+            --user $JENKINS_USERNAME:$JENKINS_TOKEN \
+            --data-urlencode json='{"parameter": [{"name":"PARAM_NAME", "value":"PARAM_VALUE"}]}'
