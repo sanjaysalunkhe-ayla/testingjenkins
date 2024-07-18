@@ -1,4 +1,2 @@
 sd
 testing
-sdf
-sdf
