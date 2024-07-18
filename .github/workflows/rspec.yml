@@ -18,6 +18,6 @@ jobs:
           JENKINS_TOKEN: 11b94b8aa8d2bcf031c084dba199d3be67  # Accessing the secret API token
         run: |
           curl -X POST "https://7fcd-49-206-3-121.ngrok-free.app/job/git-demo/build" \
-            --user jenkins-ruby:11b94b8aa8d2bcf031c084dba199d3be67 \
+            --user sanjay:11b94b8aa8d2bcf031c084dba199d3be67 \
             --data-urlencode json='{"parameter": [{"name":"sha1", "value":"origin/pr/424/head" "origin/pr/${{ github.event.pull_request.number}}/head" }]}' \
             --data-urlencode delay=0sec
